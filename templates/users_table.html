@@ -29,6 +29,7 @@
         <th>names</th>
         <th>gender</th>
         <th>country</th>
+        <th>delete</th>
     </tr>
     {% for student in students %}
 
@@ -40,6 +41,7 @@
             <td>{{ student.names }}</td>
             <td>{{ student.gender }}</td>
             <td>{{ student.country }}</td>
+             <td><a href="/delete/{{ student.id }}">Remove</a></td>
         </tr>
     {% endfor %}
 
