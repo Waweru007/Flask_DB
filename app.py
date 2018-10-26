@@ -1,7 +1,7 @@
 import peewee
 from flask import Flask, render_template,request, redirect, url_for
 
-from db import Student
+from db import Student, Result
 
 app = Flask(__name__)
 
@@ -14,6 +14,11 @@ def home():
 @app.route('/add')
 def adding_students():
      return  render_template("form.html")
+
+@app.route('/exams')
+def querying_resuls():
+    results=Result.select().where(Result.student>20)
+    return render_template("Exam_Results.html", results=results)
 
 @app.route('/save', methods=["POST"])
 def save():
